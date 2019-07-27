@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="webjars/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="webjars/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker.min.css">
+</head>
+<body>
+
+<div class="container">
+  <br />
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group">
+		  <form th:action="@{/calculateDays}"
+         th:object="${dateForm}" method="POST">
+        <div>
+         Start Date:       
+          <div class="input-group date" data-date-format="yyyy-mm-dd">
+             <input  type="text" th:field="*{startDate}" class="form-control" placeholder="yyyy-mm-dd">
+            <div class="input-group-addon" >
+              <span class="glyphicon glyphicon-th"></span>
+            </div>
+          </div>
+          
+		</div> 
+		<div>
+    	 End Date:       
+          <div class="input-group date" data-date-format="yyyy-mm-dd">
+             <input  type="text" th:field="*{endDate}" class="form-control" placeholder="yyyy-mm-dd">
+            <div class="input-group-addon" >
+              <span class="glyphicon glyphicon-th"></span>
+            </div>
+          </div>
+          
+		</div> 
+		<br/>
+		 <input type="submit" value="Submit" />
+		</form>   
+		<div th:if="${message}" th:utext="${message}"></div>
+	
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+	  
+<script src="webjars/jquery/2.1.3/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="webjars/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js"></script>
+<script id="rendered-js">
+          $('.input-group.date').datepicker({ format: "yyyy-mm-dd" });
+        </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
